@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MercadoLibre — Clon (Landing)</title>
+    <meta name="description" content="Clon inicial (landing) tipo MercadoLibre para trabajo colaborativo con Git/GitHub." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Topbar (envíos / promos) -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <span class="topbar__item">Envíos gratis desde $ 90.000</span>
+        <span class="topbar__sep">•</span>
+        <span class="topbar__item">Compra protegida</span>
+        <span class="topbar__sep">•</span>
+        <a class="topbar__link" href="#servicios">Ver más</a>
+      </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="inicio">
+      <div class="container header__grid">
+        <a class="brand" href="#inicio" aria-label="Inicio">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__text">mercado<span>clon</span></span>
+        </a>
+
+        <!-- Buscador -->
+        <form class="search" action="#" role="search" aria-label="Buscador de productos">
+          <label class="sr-only" for="q">Buscar</label>
+          <input id="q" name="q" class="search__input" type="search" placeholder="Buscar productos, marcas y más…" />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+            <!-- icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10 18a8 8 0 1 1 5.293-14.01A8 8 0 0 1 10 18Zm0-2a6 6 0 1 0-4.243-10.243A6 6 0 0 0 10 16Zm9.707 5.707-4.2-4.2 1.414-1.414 4.2 4.2-1.414 1.414Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Acciones -->
+        <nav class="nav" aria-label="Navegación principal">
+          <a class="nav__link" href="#destacados">Ofertas</a>
+          <a class="nav__link" href="#servicios">Servicios</a>
+          <a class="nav__link" href="#portafolio">Desarrolladores</a>
+          <a class="nav__link nav__link--cta" href="#footer">Ayuda</a>
+        </nav>
+      </div>
+
+      <!-- Categorías (segunda fila) -->
+      <div class="header__sub">
+        <div class="container header__subinner">
+          <button class="chip" type="button">Categorías</button>
+          <a class="chip chip--ghost" href="#">Supermercado</a>
+          <a class="chip chip--ghost" href="#">Tecnología</a>
+          <a class="chip chip--ghost" href="#">Moda</a>
+          <a class="chip chip--ghost" href="#">Hogar</a>
+          <a class="chip chip--ghost" href="#">Vehículos</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" aria-label="Promoción principal">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="badge">Landing page • Taller Git/GitHub</p>
+            <h1 class="hero__title">Encuentra lo que buscas, rápido.</h1>
+            <p class="hero__text">
+              Estructura inicial tipo marketplace: navegación, búsqueda, productos destacados, servicios y portafolio del equipo.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#destacados">Ver destacados</a>
+              <a class="btn btn--outline" href="#portafolio">Conoce al equipo</a>
+            </div>
+          </div>
+
+          <div class="hero__card" aria-label="Tarjeta de beneficios">
+            <h2 class="hero__cardtitle">Beneficios</h2>
+            <ul class="checklist">
+              <li>Pagos seguros</li>
+              <li>Envíos a todo el país</li>
+              <li>Devoluciones fáciles</li>
+              <li>Atención 24/7</li>
+            </ul>
+            <p class="hero__hint">Tip: esta sección la puede tomar `feature/ui-styles`.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Productos destacados -->
+      <section class="section" id="destacados" aria-label="Productos destacados">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Productos destacados</h2>
+            <p class="section__desc">Cards listas para conectar con JS (filtro/búsqueda) después.</p>
+          </div>
+
+          <div class="grid products">
+            <!-- Card -->
+            <article class="card product">
+              <div class="product__img" aria-hidden="true"></div>
+              <div class="product__body">
+                <p class="product__brand">Marca</p>
+                <h3 class="product__title">Audífonos inalámbricos</h3>
+                <p class="product__price">$ 129.900</p>
+                <p class="product__meta">Envío gratis</p>
+                <button class="btn btn--small" type="button">Ver detalle</button>
+              </div>
+            </article>
+
+            <article class="card product">
+              <div class="product__img product__img--alt" aria-hidden="true"></div>
+              <div class="product__body">
+                <p class="product__brand">Marca</p>
+                <h3 class="product__title">Smartwatch deportivo</h3>
+                <p class="product__price">$ 199.900</p>
+                <p class="product__meta">Cuotas sin interés</p>
+                <button class="btn btn--small" type="button">Ver detalle</button>
+              </div>
+            </article>
+
+            <article class="card product">
+              <div class="product__img product__img--alt2" aria-hidden="true"></div>
+              <div class="product__body">
+                <p class="product__brand">Marca</p>
+                <h3 class="product__title">Silla ergonómica</h3>
+                <p class="product__price">$ 499.900</p>
+                <p class="product__meta">Envío rápido</p>
+                <button class="btn btn--small" type="button">Ver detalle</button>
+              </div>
+            </article>
+
+            <article class="card product">
+              <div class="product__img product__img--alt3" aria-hidden="true"></div>
+              <div class="product__body">
+                <p class="product__brand">Marca</p>
+                <h3 class="product__title">Kit hogar inteligente</h3>
+                <p class="product__price">$ 359.900</p>
+                <p class="product__meta">Protección al comprador</p>
+                <button class="btn btn--small" type="button">Ver detalle</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Servicios -->
+      <section class="section section--muted" id="servicios" aria-label="Servicios">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Servicios</h2>
+            <p class="section__desc">Bloques tipo “beneficios” para el marketplace.</p>
+          </div>
+
+          <div class="grid services">
+            <article class="card service">
+              <h3 class="service__title">Envíos</h3>
+              <p class="service__text">Opciones rápidas y rastreo de pedidos.</p>
+              <a class="link" href="#">Conocer más</a>
+            </article>
+            <article class="card service">
+              <h3 class="service__title">Pagos</h3>
+              <p class="service__text">Métodos variados y seguridad en transacciones.</p>
+              <a class="link" href="#">Conocer más</a>
+            </article>
+            <article class="card service">
+              <h3 class="service__title">Devoluciones</h3>
+              <p class="service__text">Políticas claras y soporte al comprador.</p>
+              <a class="link" href="#">Conocer más</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portafolio de desarrolladores -->
+      <section class="section" id="portafolio" aria-label="Portafolio de desarrolladores">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Portafolio del equipo</h2>
+            <p class="section__desc">
+              Cada dev edita su tarjeta en su rama `feature/portafolio-devX` (solo su bloque).
+            </p>
+          </div>
+
+          <div class="grid devs">
+            <!-- DEV 1 -->
+            <article class="card dev" data-dev="dev1">
+              <div class="dev__head">
+                <div class="avatar" aria-hidden="true">D1</div>
+                <div>
+                  <h3 class="dev__name">Nombre Dev 1</h3>
+                  <p class="dev__role">Frontend Developer</p>
+                </div>
+              </div>
+
+              <p class="dev__bio">
+                Descripción profesional breve (2–3 líneas). Enfócate en tu especialidad.
+              </p>
+
+              <div class="dev__cols">
+                <div>
+                  <h4 class="dev__subtitle">Servicios</h4>
+                  <ul class="list">
+                    <li>Landing pages</li>
+                    <li>UI responsive</li>
+                    <li>Integración API</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="dev__subtitle">Tecnologías</h4>
+                  <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+              </div>
+
+              <a class="btn btn--small btn--outline" href="https://github.com/" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </article>
+
+            <!-- DEV 2 -->
+            <article class="card dev" data-dev="dev2">
+              <div class="dev__head">
+                <div class="avatar avatar--alt" aria-hidden="true">D2</div>
+                <div>
+                  <h3 class="dev__name">Nombre Dev 2</h3>
+                  <p class="dev__role">Backend / Fullstack</p>
+                </div>
+              </div>
+
+              <p class="dev__bio">Descripción profesional breve (2–3 líneas). Qué problemas resuelves.</p>
+
+              <div class="dev__cols">
+                <div>
+                  <h4 class="dev__subtitle">Servicios</h4>
+                  <ul class="list">
+                    <li>APIs REST</li>
+                    <li>Autenticación</li>
+                    <li>Despliegue</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="dev__subtitle">Tecnologías</h4>
+                  <div class="tags">
+                    <span class="tag">Node</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Docker</span>
+                  </div>
+                </div>
+              </div>
+
+              <a class="btn btn--small btn--outline" href="https://github.com/" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </article>
+
+            <!-- DEV 3 -->
+            <article class="card dev" data-dev="dev3">
+              <div class="dev__head">
+                <div class="avatar avatar--alt2" aria-hidden="true">D3</div>
+                <div>
+                  <h3 class="dev__name">Nombre Dev 3</h3>
+                  <p class="dev__role">UI/UX</p>
+                </div>
+              </div>
+
+              <p class="dev__bio">Descripción profesional breve (2–3 líneas). Enfoque en diseño.</p>
+
+              <div class="dev__cols">
+                <div>
+                  <h4 class="dev__subtitle">Servicios</h4>
+                  <ul class="list">
+                    <li>Design systems</li>
+                    <li>Wireframes</li>
+                    <li>Prototipos</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="dev__subtitle">Tecnologías</h4>
+                  <div class="tags">
+                    <span class="tag">Figma</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Accesibilidad</span>
+                  </div>
+                </div>
+              </div>
+
+              <a class="btn btn--small btn--outline" href="https://github.com/" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </article>
+
+            <!-- DEV 4 -->
+            <article class="card dev" data-dev="dev4">
+              <div class="dev__head">
+                <div class="avatar avatar--alt3" aria-hidden="true">D4</div>
+                <div>
+                  <h3 class="dev__name">Nombre Dev 4</h3>
+                  <p class="dev__role">QA / Automation</p>
+                </div>
+              </div>
+
+              <p class="dev__bio">Descripción profesional breve (2–3 líneas). Calidad, pruebas, etc.</p>
+
+              <div class="dev__cols">
+                <div>
+                  <h4 class="dev__subtitle">Servicios</h4>
+                  <ul class="list">
+                    <li>Pruebas funcionales</li>
+                    <li>Automatización</li>
+                    <li>Documentación</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="dev__subtitle">Tecnologías</h4>
+                  <div class="tags">
+                    <span class="tag">Playwright</span>
+                    <span class="tag">Cypress</span>
+                    <span class="tag">GitHub Actions</span>
+                  </div>
+                </div>
+              </div>
+
+              <a class="btn btn--small btn--outline" href="https://github.com/" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer" aria-label="Footer">
+      <div class="container footer__grid">
+        <div>
+          <p class="footer__brand">mercado<span>clon</span></p>
+          <p class="footer__text">Proyecto académico — Trabajo colaborativo con GitFlow.</p>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Secciones</h3>
+          <ul class="footer__list">
+            <li><a href="#destacados">Destacados</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__list">
+            <li><a href="mailto:equipo@correo.com">equipo@correo.com</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <small>© 2026 — Clon inicial (educativo). No afiliado.</small>
+      </div>
+    </footer>
+  </body>
+</html>
