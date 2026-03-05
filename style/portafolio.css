@@ -28,9 +28,9 @@ font-size:1rem;
 
 .devs{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(2,1fr); /* 2 columnas */
 gap:30px;
-max-width:1000px;
+max-width:900px;
 margin:auto;
 }
 
@@ -103,6 +103,12 @@ padding:60px 15px;
 
 .section__title{
 font-size:1.8rem;
+}
+
+/* en celular se pone 1 columna */
+
+.devs{
+grid-template-columns:1fr;
 }
 
 }
