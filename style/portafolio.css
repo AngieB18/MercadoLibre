@@ -1,0 +1,108 @@
+/* =========================
+PORTAFOLIO DE SERVICIOS
+========================= */
+
+.section{
+padding:80px 20px;
+background:#f5f6f8;
+min-height:70vh;
+}
+
+.section__title{
+text-align:center;
+font-size:2.2rem;
+font-weight:700;
+color:#333;
+margin-bottom:10px;
+}
+
+.section__desc{
+text-align:center;
+color:#666;
+margin-bottom:50px;
+font-size:1rem;
+}
+
+
+/* GRID DESARROLLADORES */
+
+.devs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+max-width:1000px;
+margin:auto;
+}
+
+
+/* TARJETAS */
+
+.dev{
+background:white;
+border-radius:12px;
+padding:30px 20px;
+text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:all .3s ease;
+}
+
+.dev:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* NOMBRE */
+
+.dev h3{
+font-size:1.3rem;
+margin-bottom:10px;
+color:#333;
+}
+
+
+/* DESCRIPCION */
+
+.dev p{
+color:#666;
+font-size:0.95rem;
+margin-bottom:20px;
+}
+
+
+/* BOTON */
+
+.btn{
+display:inline-block;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+font-size:0.9rem;
+font-weight:600;
+transition:.3s;
+}
+
+.btn--primary{
+background:#ffe600;
+color:#333;
+}
+
+.btn--primary:hover{
+background:#ffd000;
+transform:scale(1.05);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.section{
+padding:60px 15px;
+}
+
+.section__title{
+font-size:1.8rem;
+}
+
+}
