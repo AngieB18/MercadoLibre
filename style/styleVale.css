@@ -1,102 +1,74 @@
-/* Reset */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: Arial, Helvetica, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-/* Fondo estilo Mercado Libre */
 body{
 background:#ffe600;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
+padding:40px;
 }
 
-/* Tarjeta principal */
+#portafolio{
+max-width:900px;
+margin:auto;
+}
+
 .cv-container{
 background:white;
-width:420px;
-padding:35px;
-border-radius:15px;
+padding:40px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* TITULO */
+.titulo-portafolio{
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-transition:transform 0.3s;
+margin-bottom:25px;
+font-size:30px;
+color:#333;
 }
 
-/* Efecto al pasar el mouse */
-.cv-container:hover{
-transform:translateY(-6px);
-}
-
-/* Foto perfil */
+/* FOTO */
 .perfil-grande{
-width:130px;
-height:130px;
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
-border:5px solid #ffe600;
+border:4px solid #ffe600;
+display:block;
+margin:auto;
 margin-bottom:15px;
-transition:0.3s;
 }
 
-.perfil-grande:hover{
-transform:scale(1.08);
-}
-
-/* Nombre */
+/* NOMBRE */
 .nombre-cv{
-font-size:28px;
+text-align:center;
+font-size:26px;
 color:#333;
 margin-bottom:10px;
 }
 
-/* Descripción */
+/* DESCRIPCION */
 .descripcion{
+text-align:center;
 color:#555;
-font-size:15px;
-margin-bottom:20px;
-line-height:1.5;
-}
-
-/* Subtitulos */
-h2{
-color:#333;
-margin-top:18px;
-margin-bottom:10px;
-}
-
-/* Listas */
-.lista{
-list-style:none;
+line-height:1.6;
 margin-bottom:15px;
 }
 
-/* Elementos de lista */
-.lista li{
-background:#fff9cc;
-margin:6px 0;
-padding:10px;
-border-radius:8px;
-transition:0.3s;
-}
-
-.lista li:hover{
-background:#fff3a0;
-transform:scale(1.03);
-}
-
-/* Botón GitHub estilo Mercado Libre */
+/* BOTON */
 .cv-link{
-display:inline-block;
-margin-top:15px;
-padding:12px 24px;
+display:block;
+width:180px;
+margin:10px auto 30px auto;
+text-align:center;
 background:#3483fa;
 color:white;
+padding:10px;
 text-decoration:none;
-border-radius:8px;
+border-radius:6px;
 font-weight:bold;
 transition:0.3s;
 }
@@ -104,5 +76,38 @@ transition:0.3s;
 .cv-link:hover{
 background:#2968c8;
 transform:scale(1.05);
-box-shadow:0 8px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+margin-top:25px;
+margin-bottom:10px;
+color:#333;
+border-bottom:2px solid #ffe600;
+padding-bottom:5px;
+}
+
+.lista{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.lista li{
+background:#fff9cc;
+padding:12px;
+border-radius:8px;
+font-size:14px;
+}
+
+.lista li p{
+font-size:12px;
+color:#555;
+margin-top:5px;
+}
+
+/* TECNOLOGIAS */
+.tecnologias li{
+text-align:center;
+font-weight:bold;
 }
