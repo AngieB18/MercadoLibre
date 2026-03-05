@@ -1,3 +1,4 @@
+
 // ===================================
 // MERCADO LIBRE - SCRIPT PRINCIPAL
 // ===================================
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentSlide = 0;
         const totalSlides = indicators.length;
 
-        // Función para cambiar slide
         function changeSlide(direction) {
             if (direction === 'next') {
                 currentSlide = (currentSlide + 1) % totalSlides;
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
         }
 
-        // Función para actualizar el carrusel
         function updateCarousel() {
             indicators.forEach((indicator, index) => {
                 if (index === currentSlide) {
@@ -36,16 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Event listeners para botones
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => changeSlide('prev'));
-        }
-        
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => changeSlide('next'));
-        }
+        if (prevBtn) prevBtn.addEventListener('click', () => changeSlide('prev'));
+        if (nextBtn) nextBtn.addEventListener('click', () => changeSlide('next'));
 
-        // Event listeners para indicadores
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 currentSlide = index;
@@ -53,10 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Auto-play del carrusel (cada 5 segundos)
-        setInterval(() => {
-            changeSlide('next');
-        }, 5000);
+        setInterval(() => changeSlide('next'), 5000);
     }
 
     // ===================================
@@ -72,10 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const indicators = section ? section.querySelectorAll('.carousel-indicators-inline .indicator') : [];
         
         let currentPosition = 0;
-        const scrollAmount = 200; // Cantidad de píxeles a desplazar
+        const scrollAmount = 200;
         
         if (prevBtn && nextBtn && productsGrid) {
-            // Scroll hacia la izquierda
             prevBtn.addEventListener('click', () => {
                 const newPosition = Math.max(0, currentPosition - scrollAmount);
                 productsGrid.style.transform = `translateX(-${newPosition}px)`;
@@ -83,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateCarouselIndicators();
             });
             
-            // Scroll hacia la derecha
             nextBtn.addEventListener('click', () => {
                 const maxScroll = productsGrid.scrollWidth - productsGrid.clientWidth;
                 const newPosition = Math.min(maxScroll, currentPosition + scrollAmount);
@@ -92,13 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateCarouselIndicators();
             });
             
-            // Actualizar indicadores del carrusel
             function updateCarouselIndicators() {
                 if (indicators.length > 0) {
                     const maxScroll = productsGrid.scrollWidth - productsGrid.clientWidth;
                     const progress = currentPosition / maxScroll;
-                    const activeIndex = Math.floor(progress * (indicators.length - 1));
-                    
+                    const activeIndex = Math.floor(progress  (indicators.length - 1));
                     indicators.forEach((indicator, index) => {
                         if (index === activeIndex) {
                             indicator.classList.add('active');
@@ -109,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Agregar transición suave
             productsGrid.style.transition = 'transform 0.3s ease';
         }
     });
@@ -120,13 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const productCards = document.querySelectorAll('.product-card');
     
     productCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
+        card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-4px)'; });
+        card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
     });
 
     // ===================================
@@ -135,35 +114,131 @@ document.addEventListener('DOMContentLoaded', function() {
     const benefitCards = document.querySelectorAll('.benefit-card');
     
     benefitCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
+        card.addEventListener('mouseenter', function() { this.style.transform = 'scale(1.02)'; });
+        card.addEventListener('mouseleave', function() { this.style.transform = 'scale(1)'; });
     });
 
     // ===================================
-    // SEARCH BAR FUNCTIONALITY
+    // SEARCH BAR - SUGERENCIAS TIPO MERCADO LIBRE
     // ===================================
     const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.search-button');
-    
-    if (searchButton && searchInput) {
-        searchButton.addEventListener('click', () => {
-            const searchTerm = searchInput.value.trim();
-            if (searchTerm) {
-                console.log('Buscando:', searchTerm);
-                // Aquí iría la lógica de búsqueda real
-                alert(`Buscando: "${searchTerm}"\n\nEsta es una demostración. En un sitio real, esto redireccionaría a los resultados de búsqueda.`);
+    const suggestionsBox = document.getElementById('suggestions-box');
+
+    if (searchInput && suggestionsBox) {
+        const allCards = document.querySelectorAll('.product-card, .product-card-small');
+
+        // Recopilar todos los nombres de productos únicos
+        const productNames = [];
+        allCards.forEach(card => {
+            const nameEl = card.querySelector('.product-title, .product-name-small, .product-name');
+            const text = nameEl ? nameEl.textContent.trim() : '';
+            if (text && !productNames.includes(text)) {
+                productNames.push(text);
             }
         });
-        
+
+        const showSuggestions = () => {
+            const term = searchInput.value.trim().toLowerCase();
+            suggestionsBox.innerHTML = '';
+
+            if (term.length === 0) {
+                suggestionsBox.style.display = 'none';
+                return;
+            }
+
+            const matches = productNames.filter(name => name.toLowerCase().includes(term));
+
+            if (matches.length > 0) {
+                matches.slice(0, 6).forEach(match => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-item';
+                    // Resaltar la parte que coincide
+                    const regex = new RegExp(`(${term})`, 'gi');
+                    const highlighted = match.replace(regex, '<strong>$1</strong>');
+                    div.innerHTML = `<span class="suggestion-icon">🕒</span><span>${highlighted}</span>`;
+                    
+                    div.addEventListener('click', () => {
+                        searchInput.value = match;
+                        suggestionsBox.style.display = 'none';
+                        // Filtrar productos al seleccionar sugerencia
+                        filterProducts(match.toLowerCase());
+                    });
+                    suggestionsBox.appendChild(div);
+                });
+                suggestionsBox.style.display = 'block';
+            } else {
+                suggestionsBox.style.display = 'none';
+            }
+        };
+
+        const filterProducts = (term) => {
+            allCards.forEach(card => {
+                const nameEl = card.querySelector('.product-title, .product-name-small, .product-name');
+                const text = nameEl ? nameEl.textContent.toLowerCase() : '';
+                card.style.display = text.includes(term) ? '' : 'none';
+            });
+
+            document.querySelectorAll('.product-section').forEach(section => {
+                const cards = section.querySelectorAll('.product-card');
+                const allHidden = [...cards].every(c => c.style.display === 'none');
+                section.style.display = allHidden ? 'none' : '';
+            });
+
+            const recentSection = document.querySelector('.recent-products');
+            if (recentSection) {
+                const smallCards = recentSection.querySelectorAll('.product-card-small');
+                const allHidden = [...smallCards].every(c => c.style.display === 'none');
+                recentSection.style.display = allHidden ? 'none' : '';
+            }
+        };
+
+        const resetFilter = () => {
+            allCards.forEach(card => { card.style.display = ''; });
+            document.querySelectorAll('.product-section, .recent-products').forEach(sec => {
+                sec.style.display = '';
+            });
+        };
+
+        // Mostrar sugerencias mientras escribe
+        searchInput.addEventListener('input', debounce(showSuggestions, 200));
+
+        // Buscar al presionar Enter
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                searchButton.click();
+                const term = searchInput.value.trim().toLowerCase();
+                suggestionsBox.style.display = 'none';
+                if (term) {
+                    filterProducts(term);
+                } else {
+                    resetFilter();
+                }
             }
+        });
+
+        // Buscar al hacer clic en el botón
+        if (searchButton) {
+            searchButton.addEventListener('click', () => {
+                const term = searchInput.value.trim().toLowerCase();
+                suggestionsBox.style.display = 'none';
+                if (term) {
+                    filterProducts(term);
+                } else {
+                    resetFilter();
+                }
+            });
+        }
+
+        // Cerrar sugerencias al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-bar')) {
+                suggestionsBox.style.display = 'none';
+            }
+        });
+
+        // Limpiar filtro si se borra el input
+        searchInput.addEventListener('input', () => {
+            if (searchInput.value.trim() === '') resetFilter();
         });
     }
 
@@ -176,11 +251,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (acceptCookiesBtn) {
         acceptCookiesBtn.addEventListener('click', () => {
-            if (cookieNotice) {
-                cookieNotice.style.display = 'none';
-            }
+            if (cookieNotice) cookieNotice.style.display = 'none';
             console.log('Cookies aceptadas');
-            // Aquí iría la lógica para guardar la preferencia
         });
     }
     
@@ -198,11 +270,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerLinksGrid = document.querySelector('.footer-links-grid');
     
     if (footerToggle && footerLinksGrid) {
-        let isExpanded = true; // Por defecto está expandido
+        let isExpanded = true;
         
         footerToggle.addEventListener('click', () => {
             isExpanded = !isExpanded;
-            
             if (isExpanded) {
                 footerLinksGrid.style.display = 'grid';
                 footerToggle.querySelector('span').textContent = '▲';
@@ -222,11 +293,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Solo prevenir el comportamiento predeterminado si no es una navegación real
             if (link.getAttribute('href') === '#') {
                 e.preventDefault();
                 console.log('Navegación a:', link.textContent.trim());
-                // En un sitio real, aquí iría la lógica de navegación
             }
         });
     });
@@ -241,10 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });
@@ -282,7 +348,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Cambiar ubicación');
             alert('Esta es una demostración. En un sitio real, esto permitiría cambiar la ubicación de envío.');
         });
-        
         locationElement.style.cursor = 'pointer';
     }
 
@@ -293,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     allProductCards.forEach(card => {
         card.addEventListener('click', function(e) {
-            // Evitar navegación si se hace clic en un enlace o botón dentro de la tarjeta
             if (!e.target.closest('a') && !e.target.closest('button')) {
                 console.log('Ver detalles del producto');
                 alert('Esta es una demostración. En un sitio real, esto abriría la página de detalles del producto.');
@@ -311,7 +375,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Ver oferta de entretenimiento');
             alert('Esta es una demostración. En un sitio real, esto abriría los detalles de la oferta de streaming.');
         });
-        
         card.style.cursor = 'pointer';
     });
 
@@ -327,14 +390,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Esta es una demostración. En un sitio real, esto abriría los detalles de la promoción.');
             }
         });
-        
         card.style.cursor = 'pointer';
     });
 
     // ===================================
     // INITIALIZE ANIMATIONS
     // ===================================
-    // Agregar clase de animación a elementos cuando entran en el viewport
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -349,7 +410,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observar secciones para animaciones
     const sections = document.querySelectorAll('.product-section, .entertainment-section, .device-promos');
     sections.forEach(section => {
         section.style.opacity = '0';
@@ -358,9 +418,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // ===================================
-    // CONSOLE LOG - READY
-    // ===================================
     console.log('✅ Mercado Libre - Réplica cargada correctamente');
     console.log('📦 Esta es una demostración educativa de la interfaz de Mercado Libre');
 });
@@ -369,7 +426,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // UTILITY FUNCTIONS
 // ===================================
 
-// Función para formatear precios
 function formatPrice(price) {
     return new Intl.NumberFormat('es-CO', {
         style: 'currency',
@@ -378,7 +434,6 @@ function formatPrice(price) {
     }).format(price);
 }
 
-// Función para debounce (útil para eventos que se disparan frecuentemente)
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -391,13 +446,10 @@ function debounce(func, wait) {
     };
 }
 
-// Event listener para el resize de ventana (con debounce)
 window.addEventListener('resize', debounce(() => {
     console.log('Ventana redimensionada');
-    // Aquí se pueden agregar ajustes responsivos adicionales si es necesario
 }, 250));
 
-// Función para detectar si un elemento está en el viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -408,13 +460,9 @@ function isInViewport(element) {
     );
 }
 
-// Prevenir que el scroll horizontal afecte la experiencia
 document.addEventListener('wheel', (e) => {
     if (e.deltaX !== 0) {
-        // Permitir scroll horizontal dentro de carruseles específicamente
         const target = e.target.closest('.products-grid');
-        if (!target) {
-            e.preventDefault();
-        }
+        if (!target) e.preventDefault();
     }
 }, { passive: false });
