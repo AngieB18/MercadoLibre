@@ -207,18 +207,118 @@ ul {
 
 .main-nav ul {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .main-nav a {
     color: #333;
-    font-size: 14px;
+    font-size: 13px;
     transition: opacity 0.2s;
+    white-space: nowrap;
 }
 
 .main-nav a:hover {
     opacity: 0.7;
+}
+
+/* ---- DROPDOWN ---- */
+.nav-item {
+    position: relative;
+}
+
+.nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 1000;
+    min-width: 180px;
+    padding: 8px 0;
+    animation: dropFadeIn 0.18s ease;
+}
+
+@keyframes dropFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item .dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 9px 18px;
+    font-size: 13px;
+    color: #333 !important;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+    opacity: 1 !important;
+}
+
+/* Dropdown en grid para Categorías */
+.dropdown-grid {
+    display: flex;
+    gap: 0;
+    padding: 12px 0;
+}
+
+.dropdown-col {
+    min-width: 150px;
+    padding: 0 16px;
+    border-right: 1px solid #eee;
+}
+
+.dropdown-col:last-child {
+    border-right: none;
+}
+
+.dropdown-col .dropdown-title {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 2px 8px;
+}
+
+.dropdown-col a {
+    display: block;
+    padding: 6px 2px;
+    font-size: 13px;
+    color: #333;
+    transition: color 0.15s;
+}
+
+.dropdown-col a:hover {
+    color: #3483FA;
+    background: none;
+}
+
+/* Dropdown pequeño (listas simples) */
+.dropdown-small {
+    min-width: 200px;
+}
+
+.dropdown-small a {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-small a:last-child {
+    border-bottom: none;
 }
 
 .nav-new {
@@ -768,8 +868,9 @@ ul {
 
 .promos-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    align-items: stretch;
 }
 
 .promo-card {
@@ -786,55 +887,93 @@ ul {
 .promo-content {
     display: flex;
     align-items: center;
-    padding: 30px;
-    min-height: 300px;
+    padding: 20px;
+    min-height: 280px;
+    overflow: hidden;
+    gap: 16px;
 }
 
 .promo-content img {
-    max-width: 300px;
+    max-width: 45%;
+    width: auto;
     height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .promo-info {
     flex: 1;
-    padding-left: 30px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .promo-info-right {
     flex: 1;
-    padding-left: 30px;
+    min-width: 0;
     color: white;
+    overflow: hidden;
+}
+
+.promo-info-right h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    line-height: 1.2;
 }
 
 .brand-logo {
-    height: 40px;
-    margin-bottom: 15px;
+    height: 60px;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .brand-logo-large {
     height: 50px;
     margin-bottom: 15px;
+    background: #0066CC;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.vivo-logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.vivo-top-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
 }
 
 .promo-info h3 {
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
     margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .promo-info h2 {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    line-height: 1.2;
 }
 
-.promo-info-right h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 15px;
-}
+
+
 
 .promo-link {
     color: #3483FA;
