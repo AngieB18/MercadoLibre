@@ -55,27 +55,119 @@
         <div class="container">
           <nav class="main-nav">
             <ul class="nav-left">
-              <li><a href="#">Categorías</a></li>
-              <li><a href="#">Ofertas</a></li>
-              <li><a href="#">Cupones</a></li>
-              <li>
-                <a href="#" class="nav-new"
-                  >Supermercado <span class="badge-new">NUEVO</span></a
-                >
+
+              <!-- CATEGORÍAS -->
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Categorías ▾</a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-grid">
+                    <div class="dropdown-col">
+                      <span class="dropdown-title">Electrónica</span>
+                      <a href="#productos">Celulares y Teléfonos</a>
+                      <a href="#productos">Computación</a>
+                      <a href="#productos">Tablets</a>
+                      <a href="#productos">Accesorios</a>
+                    </div>
+                    <div class="dropdown-col">
+                      <span class="dropdown-title">Hogar</span>
+                      <a href="#productos">Electrodomésticos</a>
+                      <a href="#productos">Muebles</a>
+                      <a href="#productos">Jardín</a>
+                      <a href="#productos">Herramientas</a>
+                    </div>
+                    <div class="dropdown-col">
+                      <span class="dropdown-title">Moda</span>
+                      <a href="#productos">Ropa Mujer</a>
+                      <a href="#productos">Ropa Hombre</a>
+                      <a href="#productos">Calzado</a>
+                      <a href="#productos">Accesorios</a>
+                    </div>
+                    <div class="dropdown-col">
+                      <span class="dropdown-title">Más</span>
+                      <a href="#productos">Deportes</a>
+                      <a href="#productos">Juguetes</a>
+                      <a href="#productos">Libros</a>
+                      <a href="#productos">Vehículos</a>
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li><a href="#">Moda</a></li>
-              <li><a href="#">Vender</a></li>
-              <li><a href="#">Ayuda / PQR</a></li>
-              <li>
-                <a class="nav__link" href="portafolioServicios.html"
-                  >Portafolio de Desarrolladores</a
-                >
+
+              <!-- OFERTAS -->
+              <li class="nav-item has-dropdown">
+                <a href="#ofertas" class="nav-link">Ofertas ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#ofertas">🔥 Oferta del día</a>
+                  <a href="#beneficios">🚚 Envío gratis</a>
+                  <a href="#productos">⚡ Liquidación</a>
+                  <a href="#entretenimiento">🎁 Combos especiales</a>
+                </div>
               </li>
+
+              <!-- CUPONES -->
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Cupones ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#beneficios">🏷️ Mis cupones</a>
+                  <a href="#beneficios">💳 Cupones Mercado Pago</a>
+                  <a href="#beneficios">🎟️ Cupones de tiendas</a>
+                </div>
+              </li>
+
+              <!-- SUPERMERCADO -->
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-new nav-link">Supermercado <span class="badge-new">NUEVO</span> ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#productos">🥩 Carnes y Pescados</a>
+                  <a href="#productos">🥦 Frutas y Verduras</a>
+                  <a href="#productos">🥛 Lácteos</a>
+                  <a href="#productos">🧃 Bebidas</a>
+                  <a href="#productos">🧹 Limpieza del hogar</a>
+                </div>
+              </li>
+
+              <!-- MODA -->
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Moda ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#productos">👗 Mujer</a>
+                  <a href="#productos">👔 Hombre</a>
+                  <a href="#productos">👟 Calzado</a>
+                  <a href="#productos">👜 Bolsos y Accesorios</a>
+                </div>
+              </li>
+
+              <!-- VENDER -->
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Vender ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#" id="btn-vender">📦 Publicar un artículo</a>
+                  <a href="#" id="btn-mis-ventas">📊 Mis ventas</a>
+                  <a href="#" id="btn-reputacion">⭐ Mi reputación</a>
+                  <a href="#" id="btn-facturacion">💰 Facturación</a>
+                </div>
+              </li>
+
+              <!-- AYUDA -->
+              <li class="nav-item has-dropdown">
+                <a href="#footer" class="nav-link">Ayuda / PQR ▾</a>
+                <div class="dropdown-menu dropdown-small">
+                  <a href="#footer">❓ Centro de ayuda</a>
+                  <a href="#footer">📝 Poner una queja</a>
+                  <a href="#footer">🔒 Privacidad y seguridad</a>
+                  <a href="#footer">📞 Contactar soporte</a>
+                </div>
+              </li>
+
+              <!-- PORTAFOLIO -->
+              <li class="nav-item">
+                <a class="nav__link nav-link" href="portafolioServicios.html">Portafolio de Desarrolladores</a>
+              </li>
+
             </ul>
             <ul class="nav-right">
-              <li><a href="#" class="user-link">KS kevin</a></li>
-              <li><a href="#">Mis compras</a></li>
-              <li><a href="#">Favoritos</a></li>
+              <li><a href="#" class="nav-link" id="nav-mis-compras">Mis compras</a></li>
+              <li><a href="#" class="nav-link" id="nav-favoritos">Favoritos</a></li>
               <li>
                 <a href="#" class="notification-icon"
                   >🔔<span class="notification-badge">1</span></a
@@ -93,7 +185,7 @@
     </header>
 
     <!-- BANNER PRINCIPAL - HERRAMIENTAS -->
-    <section class="hero-banner">
+    <section class="hero-banner" id="inicio">
       <div class="container">
         <div class="carousel-container">
           <button class="carousel-btn prev-btn">‹</button>
@@ -159,7 +251,7 @@
     </section>
 
     <!-- SECCIÓN DE TARJETAS DE BENEFICIOS -->
-    <section class="benefits-cards">
+    <section class="benefits-cards" id="beneficios">
       <div class="container">
         <div class="cards-grid">
           <!-- Envío gratis -->
@@ -267,7 +359,7 @@
     </section>
 
     <!-- SECCIÓN: INSPIRADO EN LO ÚLTIMO QUE VISTE -->
-    <section class="product-section">
+    <section class="product-section" id="productos">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Inspirado en lo último que viste</h2>
@@ -656,7 +748,7 @@
     </section>
 
     <!-- SECCIÓN: BENEFICIOS EN ENTRETENIMIENTO -->
-    <section class="entertainment-section">
+    <section class="entertainment-section" id="entretenimiento">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Beneficios en entretenimiento</h2>
@@ -749,7 +841,7 @@
     </section>
 
     <!-- SECCIÓN: PROMOCIONES DE DISPOSITIVOS -->
-    <section class="device-promos">
+    <section class="device-promos" id="dispositivos">
       <div class="container">
         <div class="promos-grid">
           <!-- Promoción Tablet Huawei -->
@@ -782,15 +874,13 @@
                 />
               </div>
               <div class="promo-info-right">
-                <div class="vivo-badge">
-                  <p>vivo SMARTPHONE</p>
-                  <p class="vivo-guarantee">🛡 2 años de garantía</p>
+                <div class="vivo-top-row">
+                  <div class="vivo-badge">
+                    <p>vivo SMARTPHONE</p>
+                    <p class="vivo-guarantee">🛡 2 años de garantía</p>
+                  </div>
+                  <div class="vivo-logo-text">vivo</div>
                 </div>
-                <img
-                  src="https://i.pinimg.com/736x/6b/89/32/6b893203d3b2cff2a9c20b0ad415c852.jpg"
-                  alt="Vivo Logo"
-                  class="brand-logo-large"
-                />
                 <h2>TU NUEVO CELU AQUÍ</h2>
                 <a href="#" class="promo-link-white">Ver más ›</a>
               </div>
@@ -801,7 +891,7 @@
     </section>
 
     <!-- SECCIÓN: OFERTA DEL DÍA Y OFERTAS -->
-    <section class="daily-deals">
+    <section class="daily-deals" id="ofertas">
       <div class="container">
         <div class="deals-header">
           <div class="deal-col">
@@ -892,7 +982,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="container">
         <!-- Beneficios principales -->
         <div class="footer-benefits">
